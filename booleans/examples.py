@@ -58,3 +58,18 @@ def myFunction() :
   return True
 
 print(myFunction())
+
+
+#
+def myFunction() :
+  return True
+
+if myFunction():
+  print("YES!")
+else:
+  print("NO!")
+
+
+# built-in function that return a boolean value, "isinstance()", to determine if an object is of a certain data type
+x = 200
+print(isinstance(x, int))
