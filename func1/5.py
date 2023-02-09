@@ -1,17 +1,9 @@
-def toString(given):
-    return ''.join(given)
+import itertools
 
-a = input()
-y = len(a)
-given = list(a)
+def permute(str):
+    mylist = [''.join(i) for i in itertools.permutations(str)]
+    for i in mylist:
+        print(i, end = " ")
 
-def permute(given, x, y):
-    if x == y:
-        print(toString(given))
-    else:
-        for i in range(x, y):
-            given[x], given[i] = given[i], given[y]
-            permute(given, x+1, y)
-            given[x], given[i] = given[i], given[y]
-
-permute(given, 0, y)
+n = input()
+permute(n)
