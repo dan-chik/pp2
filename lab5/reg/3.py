@@ -1,7 +1,7 @@
 import re
 
 def txt_match(text):
-    x = '^[a-z]+_[a-z]$'
+    x = '^[a-z]+_[a-z]+$'
     if re.search(x, text):
         return 'yes'
     else:
