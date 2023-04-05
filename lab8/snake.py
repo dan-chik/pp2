@@ -65,6 +65,26 @@ def show_score(choice, color, font, size):
 	# displaying text
 	game_window.blit(score_surface, score_rect)
 
+# initial score
+level = 0
+
+# displaying Level function
+def show_level(choice, color, font, size):
+
+	# creating font object score_font
+	level_font = pygame.font.SysFont(font, size)
+	
+	# create the display surface object
+	# score_surface
+	level_surface = level_font.render('Level : ' + str(level), True, color)
+	
+	# create a rectangular object for the text
+	# surface object
+	#level_rect = level_surface.get_rect()
+	
+	# displaying text
+	game_window.blit(level_surface, (500, 0))
+
 # game over function
 def game_over():
 
@@ -140,6 +160,9 @@ while True:
 	snake_body.insert(0, list(snake_position))
 	if snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1]:
 		score += 10
+		if score >= 50:
+			snake_speed += 5
+			level += 1
 		fruit_spawn = False
 	else:
 		snake_body.pop()
@@ -170,6 +193,9 @@ while True:
 
 	# displaying score countinuously
 	show_score(1, white, 'times new roman', 20)
+
+	# displaying level countinuously
+	show_level(1, white, 'times new roman', 20)
 
 	# Refresh game screen
 	pygame.display.update()
